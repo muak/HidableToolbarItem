@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:cr="clr-namespace:Sample.CustomRenderers"
+    xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+    prism:ViewModelLocator.AutowireViewModel="True"
+    x:Class="Sample.Views.MainPage">
+
+    <ContentPage.ToolbarItems>
+        <cr:MyToolbarItem Text="Hoge" IsVisible="{Binding Visible1.Value}" Command="{Binding MenuCommand}" />
+        <cr:MyToolbarItem Text="Fuga" IsVisible="{Binding Visible2.Value}" />
+    </ContentPage.ToolbarItems>
+
+    <StackLayout>
+        <Button Text="Next" Command="{Binding GoNextCommand}" />
+        <Label Text="Menu1 Visible" />
+        <Switch IsToggled="{Binding Visible1.Value}"/>
+        <Label Text="Menu2 Visible" />
+        <Switch IsToggled="{Binding Visible2.Value}"/>
+    </StackLayout>
+</ContentPage>
